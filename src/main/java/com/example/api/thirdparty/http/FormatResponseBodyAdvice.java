@@ -31,19 +31,28 @@ final public class FormatResponseBodyAdvice<T> implements ResponseBodyAdvice<T> 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
-        if (!(body instanceof Response.Factory.JsonResponse<?>)) {
+        if (this.isNotJsonResponse(body)) {
 
             if (returnType.getGenericParameterType().equals(String.class)) {
-                try {
-                    body = objectMapper.writeValueAsString(this.factory.make(body, request.getMethod().name()));
-                } catch (JsonProcessingException e) {
-                    throw new JsonResponseConverterException(e);
-                }
-
-                return body;
+                return this.convertStringToJsonResponse(body, request);
             }
 
             body = this.factory.make(body, request.getMethod().name());
+        }
+
+        return body;
+    }
+
+    private boolean isNotJsonResponse(Object body) {
+        return !(body instanceof Response.Factory.JsonResponse<?>);
+    }
+
+    private Object convertStringToJsonResponse(Object body, ServerHttpRequest request) {
+
+        try {
+            body = objectMapper.writeValueAsString(this.factory.make(body, request.getMethod().name()));
+        } catch (JsonProcessingException e) {
+            throw new JsonResponseConverterException(e);
         }
 
         return body;
