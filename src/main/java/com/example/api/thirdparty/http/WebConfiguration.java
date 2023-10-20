@@ -1,4 +1,4 @@
-package com.example.api.thirdparty.http.wrap;
+package com.example.api.thirdparty.http;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
