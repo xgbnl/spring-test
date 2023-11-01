@@ -1,4 +1,4 @@
-package com.example.api.app.thirdparty.http.contacts;
+package com.example.api.provider.response.contacts;
 
 public interface Response {
     String message();

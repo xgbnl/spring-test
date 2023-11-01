@@ -1,4 +1,4 @@
-package com.example.api.app.thirdparty.http.exception;
+package com.example.api.provider.response.exception;
 
 final public class JsonResponseConverterException extends RuntimeException {
 

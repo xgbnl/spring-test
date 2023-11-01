@@ -1,7 +1,7 @@
-package com.example.api.app.thirdparty.http;
+package com.example.api.provider.response;
 
-import com.example.api.app.thirdparty.http.contacts.Response;
-import com.example.api.app.thirdparty.http.exception.JsonResponseConverterException;
+import com.example.api.provider.response.contacts.Response;
+import com.example.api.provider.response.exception.JsonResponseConverterException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.MethodParameter;
@@ -30,7 +30,7 @@ final public class FormatResponseBodyAdvice<T> implements ResponseBodyAdvice<T> 
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-System.out.println(body);
+
         if (this.isNotJsonResponse(body)) {
 
             if (returnType.getGenericParameterType().equals(String.class)) {

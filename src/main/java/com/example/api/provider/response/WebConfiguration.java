@@ -1,4 +1,4 @@
-package com.example.api.app.thirdparty.http;
+package com.example.api.provider.response;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

@@ -1,6 +1,6 @@
-package com.example.api.app.thirdparty.http;
+package com.example.api.provider.response;
 
-import com.example.api.app.thirdparty.http.contacts.Response;
+import com.example.api.provider.response.contacts.Response;
 import org.springframework.stereotype.Component;
 
 @Component
