@@ -10,4 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  type-aliases-package: com.example.api
+  type-aliases-package: com.example.api.models
+  mapper-locations: classpath:mybatis/mapping/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
