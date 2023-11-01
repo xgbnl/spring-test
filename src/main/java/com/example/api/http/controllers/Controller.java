@@ -25,22 +25,7 @@ final public class Controller {
     }
 
     @GetMapping("tests")
-    public void index() throws IOException {
-
-//        String resource = "mybatis/mybatis-config.xml";
-//        InputStream inputStream = Resources.getResourceAsStream(resource);
-//
-//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-//
-//        try(SqlSession session = sqlSessionFactory.openSession()){
-//          UserMapper userMapper =  session.getMapper(UserMapper.class);
-//
-//            List<User> users = userMapper.getUsers();
-//
-//            System.out.println(users);
-//        }
-
-        System.out.println(this.mapper.getUsers());
-
+    public List<User> index()  {
+        return this.mapper.getUsers();
     }
 }

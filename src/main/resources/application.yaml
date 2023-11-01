@@ -4,10 +4,10 @@ spring:
       enabled: true
       additional-paths: src/main/java
   datasource:
-    url: jdbc:mysql//localhost:3306/laravel
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: guest
     password: password
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/laravel
 
 mybatis:
   type-aliases-package: com.example.api.models
